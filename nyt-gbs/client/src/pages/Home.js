@@ -63,10 +63,10 @@ class Home extends Component {
           <Col size="md-12">
             <Jumbotron>
               <h1 className="text-center">
-                <strong>(React) Google Books Search</strong>
+                <strong>Book Search</strong>
               </h1>
               <h2 className="text-center">
-                Search for and Save Books of Interest.
+                Find a Book, Save a Book.
               </h2>
             </Jumbotron>
           </Col>
