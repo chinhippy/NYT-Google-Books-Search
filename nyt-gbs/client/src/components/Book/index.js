@@ -27,6 +27,9 @@ function Book ({ title, subtitle, authors, link, description, image, Button }) {
           </Col>
       </Row>
       <Row>
+        <Col size="12 sm-4 md-2">
+          <img className="img-thumbnail img-fluid w-100" src={image} alt={title} />
+        </Col>
         <Col size = '12 sm-8 md-10'>
           <p>{description}</p>
         </Col>
