@@ -20,22 +20,27 @@ class Home extends Component {
     this.setState({
       [name]: value
     });
+    console.log(name)
   };
 
-  getBooks = () => {
-    API.getBooks(this.state.q)
-      .then(res =>
+  getBooks = (q) => {
+    
+    API.getBooks(this.state.q)    
+      .then(res =>{
         this.setState({
-          books: res.data
-        })
-      )
+          books: res.data.items
+        });
+        // console.log(this.state.books);
+        console.log(res.data.items)
+      })
       .catch(() =>
         this.setState({
           books: [],
-          message: "No New Books Found, Try a Different Title"
+          message: "No New Books Found, Try a Different Query"
         })
       );
   };
+
 
   handleFormSubmit = event => {
     event.preventDefault();
@@ -89,11 +94,11 @@ class Home extends Component {
                     <Book
                       key={book.id}
                       title={book.volumeInfo.title}
-                      subtitle={book.volumeInfo.subtitle}
+                      // subtitle={book.volumeInfo.title}
                       link={book.volumeInfo.infoLink}
-                      authors={book.volumeInfo.authors.join(", ")}
+                      authors={book.volumeInfo.authors}
                       description={book.volumeInfo.description}
-                      image={book.volumeInfo.imageLinks.thumbnail}
+                      image={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : "https://via.placeholder.com/150x150" }
                       Button={() => (
                         <button
                           onClick={() => this.handleBookSave(book.id)}
