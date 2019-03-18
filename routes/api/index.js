@@ -5,7 +5,7 @@ const bookRoutes = require("./books");
 const axios = require("axios");
 // Book routes
 router.use("/books", bookRoutes);
-router.use('/')
+// router.use('/')
 
 // Google Routes
 // router.use("/google", googleRoutes);
